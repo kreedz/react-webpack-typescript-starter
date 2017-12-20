@@ -3,10 +3,10 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": false,
-        "module": "commonjs",
-        "target": "es5",
+        "module": "es6",
+        "target": "es6",
         "jsx": "react",
-        "lib": ["es5", "es6", "dom"]
+        "lib": ["es6", "dom"]
     },
     "include": [
         "./src/**/*"

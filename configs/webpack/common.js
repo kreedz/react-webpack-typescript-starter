@@ -12,14 +12,28 @@ module.exports = {
   module: {
     rules: [
       {
+          test: /\.tsx?$/,
+          use: [
+              {
+                  loader: 'babel-loader',
+                  options: {
+                      plugins: ['transform-runtime']
+                  }
+              },
+              {
+                  loader: 'awesome-typescript-loader',
+              }
+          ],
+      },
+/*      {
         test: /\.js$/,
         use: ['babel-loader', 'source-map-loader'],
         exclude: /node_modules/,
-      },
-      {
+      },*/
+/*      {
         test: /\.tsx?$/,
         use: 'awesome-typescript-loader',
-      },
+      },*/
       {
         test: /\.css$/,
         use: ['style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader',],
@@ -42,6 +56,7 @@ module.exports = {
       },
     ],
   },
+  devtool: 'inline-source-map',
   plugins: [
     new CheckerPlugin(),
     new StyleLintPlugin(),

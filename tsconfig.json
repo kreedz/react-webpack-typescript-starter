@@ -1,14 +1,16 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": false,
-        "module": "es6",
-        "target": "es6",
-        "jsx": "react",
-        "lib": ["es6", "dom"]
-    },
-    "include": [
-        "./src/**/*"
-    ]
+  "compilerOptions": {
+    "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "es6",
+      "target": "es6",
+      "moduleResolution": "Node",
+      "baseUrl": "./src",
+      "allowSyntheticDefaultImports": true,
+      "jsx": "react"
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }

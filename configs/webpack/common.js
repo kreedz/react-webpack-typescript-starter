@@ -3,12 +3,13 @@ const {resolve} = require('path');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const srcPath = resolve(__dirname, '../../src');
 
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
-  context: resolve(__dirname, '../../src'),
+  context: srcPath,
   module: {
     rules: [
       {
@@ -25,15 +26,6 @@ module.exports = {
               }
           ],
       },
-/*      {
-        test: /\.js$/,
-        use: ['babel-loader', 'source-map-loader'],
-        exclude: /node_modules/,
-      },*/
-/*      {
-        test: /\.tsx?$/,
-        use: 'awesome-typescript-loader',
-      },*/
       {
         test: /\.css$/,
         use: ['style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader',],
@@ -60,13 +52,10 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new StyleLintPlugin(),
-    new HtmlWebpackPlugin({template: 'index.html.ejs',}),
-  ],
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-  },
-  performance: {
-    hints: false,
-  },
+    new HtmlWebpackPlugin({
+        template: srcPath + '/index.html',
+        filename: 'index.html',
+        inject: 'body'
+    }),
+  ]
 };

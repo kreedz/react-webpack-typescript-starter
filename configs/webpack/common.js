@@ -3,11 +3,17 @@ const {resolve} = require('path');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+
 const srcPath = resolve(__dirname, '../../src');
+
 
 module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        plugins: [
+            new TsConfigPathsPlugin()
+        ]
     },
     context: srcPath,
     module: {

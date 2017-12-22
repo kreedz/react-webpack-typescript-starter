@@ -1,9 +1,11 @@
-import * as React from 'react';
-import {render} from 'react-dom';
+import React from 'react';
+import {render, unmountComponentAtNode} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
-import App from './components/App';
-import configureStore from './store';
+
+import App from 'components/App';
+import configureStore from 'store';
+
 
 const rootEl = document.getElementById('root');
 const store = configureStore();
@@ -24,6 +26,7 @@ declare let module: { hot: any };
 
 if (module.hot) {
     module.hot.accept('./components/App', () => {
+        unmountComponentAtNode(rootEl);
         renderApp();
     });
 }

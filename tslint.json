@@ -10,6 +10,7 @@
     "trailing-comma": false,
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,
-    "no-var-requires": false
+    "no-var-requires": false,
+    "no-consecutive-blank-lines": [true, 2]
   }
 }
